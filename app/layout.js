@@ -1,15 +1,89 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const fedro = localFont({
+  src: [
+    {
+      path: "../fonts/fonnts.com-fedro-light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-lightitalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-regularitalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-mediumitalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-semibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-semibolditalic.otf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-bolditalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-extrabold.otf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-extrabolditalic.otf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../fonts/fonnts.com-fedro-blackitalic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-fedro",
 });
+
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +94,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${fedro.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex flex-col font-sans">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
+
